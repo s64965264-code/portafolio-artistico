@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Portafolio Artístico - Exhibición</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="hero-inner">
+            <div class="eyebrow">Exhibición digital</div>
+            <h1>Mi Portafolio Artístico</h1>
+            <p>Exposición digital de composiciones, dibujos y técnicas visuales originales organizada como una muestra cronológica de mis obras.</p>
+            <div class="hero-stats" aria-label="Resumen de la exhibición">
+                <div class="stat"><strong>12</strong><span>Obras en muestra</span></div>
+                <div class="stat"><strong>6</strong><span>Meses de proceso</span></div>
+                <div class="stat"><strong>12</strong><span>Técnicas visuales</span></div>
+                <div class="stat"><strong>2026</strong><span>Portafolio de arte</span></div>
+            </div>
+        </div>
+    </header>
+
+    <nav class="toolbar" aria-label="Controles de exhibición">
+        <div class="toolbar-inner">
+            <input id="search" class="search" type="search" placeholder="Buscar obra, técnica o fecha" aria-label="Buscar obra">
+            <div class="controls">
+                <select id="techniqueFilter" aria-label="Filtrar por técnica">
+                    <option value="Todas">Todas las técnicas</option>
+                    <option value="Retrato cromático">Retrato cromático</option>
+                    <option value="Paisaje">Paisaje</option>
+                    <option value="Mosaico y geometría">Mosaico y geometría</option>
+                    <option value="Boceto a lápiz">Boceto a lápiz</option>
+                    <option value="Paisaje cromático">Paisaje cromático</option>
+                    <option value="Perspectiva">Perspectiva</option>
+                    <option value="Perspectiva óptica">Perspectiva óptica</option>
+                    <option value="Arquitectura">Arquitectura</option>
+                    <option value="Arte abstracto">Arte abstracto</option>
+                    <option value="Arte articulado">Arte articulado</option>
+                    <option value="Creación de personajes">Creación de personajes</option>
+                    <option value="Pixel art">Pixel art</option>
+                </select>
+                <button id="viewToggle" type="button">Vista lista</button>
+                <button id="tourButton" type="button">Recorrido</button>
+                <button id="resetButton" type="button">Todo</button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="timeline" aria-label="Línea de tiempo">
+        <div class="timeline-inner">
+            <button class="month-button active" type="button" data-month="Todos"><span>Inicio</span><strong>Toda la muestra</strong></button>
+            <button class="month-button" type="button" data-month="Enero"><span>22</span><strong>Enero</strong></button>
+            <button class="month-button" type="button" data-month="Febrero"><span>11 / 19 / 27</span><strong>Febrero</strong></button>
+            <button class="month-button" type="button" data-month="Marzo"><span>4</span><strong>Marzo</strong></button>
+            <button class="month-button" type="button" data-month="Abril"><span>22 / 30</span><strong>Abril</strong></button>
+            <button class="month-button" type="button" data-month="Julio"><span>22</span><strong>Julio</strong></button>
+            <button class="month-button" type="button" data-month="Agosto"><span>5 / 12 / 20</span><strong>Agosto</strong></button>
+        </div>
+    </section>
+
+    <main class="container">
+        <div class="section-head">
+            <div>
+                <p class="eyebrow">Sala principal</p>
+                <h2>Obras en orden cronológico</h2>
+            </div>
+            <p id="resultCount">12 obras visibles</p>
+        </div>
+        <div id="gallery" class="gallery-grid">
+            <article class="art-card" data-index="0" data-month="Enero" data-technique="Retrato crom&#225;tico" data-title="Dibujo crom&#225;tico: 22 / Enero" data-room="Sala I">
+                <button class="art-open" type="button" aria-label="Abrir ficha de Dibujo crom&#225;tico: 22 / Enero">
+                    <span class="image-container">
+                        <img src="assets/obra-original-01.jpg" alt="Retrato Ex&#195;&#179;tico en Tonos Fr&#195;&#173;os">
+                    </span>
+                    <span class="art-info">
+                        <span class="art-kicker">Sala I / 22 de enero</span>
+                        <span class="art-technique">Retrato crom&#225;tico</span>
+                        <span class="art-title">Dibujo crom&#225;tico: 22 / Enero</span>
+                        <span class="art-description">Retrato trabajado con una paleta fr&#237;a y contraste expresivo, pensado como apertura de la muestra.</span>
+                    </span>
+                </button>
+            </article>
+            <article class="art-card" data-index="1" data-month="Febrero" data-technique="Paisaje" data-title="Mi dibujo y yo: 11 / Febrero" data-room="Sala II">
+                <button class="art-open" type="button" aria-label="Abrir ficha de Mi dibujo y yo: 11 / Febrero">
+                    <span class="image-container">
+                        <img src="assets/obra-original-02.jpg" alt="Paisaje con Cascada en la Naturaleza">
+                    </span>
+                    <span class="art-info">
+                        <span class="art-kicker">Sala II / 11 de febrero</span>
+                        <span class="art-technique">Paisaje</span>
+                        <span class="art-title">Mi dibujo y yo: 11 / Febrero</span>
+                        <span class="art-description">Paisaje de monta&#241;a con cascada y detalles naturales, presentado como una escena de encuentro personal con el dibujo.</span>
+                    </span>
+                </button>
+            </article>
+            <article class="art-card" data-index="2" data-month="Febrero" data-technique="Mosaico y geometr&#237;a" data-title="Dibujo con figuras geom&#233;tricas: 19 / Febrero" data-room="Sala II">
+                <button class="art-open" type="button" aria-label="Abrir ficha de Dibujo con figuras geom&#233;tricas: 19 / Febrero">
+                    <span class="image-container">
+                        <img src="assets/obra-original-03.jpg" alt="Mosaico Marino">
+                    </span>
+                    <span class="art-info">
+                        <span class="art-kicker">Sala II / 19 de febrero</span>
+                        <span class="art-technique">Mosaico y geometr&#237;a</span>
+                        <span class="art-title">Dibujo con figuras geom&#233;tricas: 19 / Febrero</span>
+                        <span class="art-description">Composici&#243;n marina con medusa y estrellas de mar construida desde formas geom&#233;tricas y ritmo visual.</span>
+                    </span>
+                </button>
+            </article>
+            <article class="art-card" data-index="3" data-month="Febrero" data-technique="Boceto a l&#225;piz" data-title="Mi personaje: 27 / Febrero" data-room="Sala II">
+                <button class="art-open" type="button" aria-label="Abrir ficha de Mi personaje: 27 / Febrero">
+                    <span class="image-container">
+                        <img src="assets/obra-original-04.jpg" alt="Retrato Lineal de una Joven">
+                    </span>
+                    <span class="art-info">
+                        <span class="art-kicker">Sala II / 27 de febrero</span>
+                        <span class="art-technique">Boceto a l&#225;piz</span>
+                        <span class="art-title">Mi personaje: 27 / Febrero</span>
+                        <span class="art-description">Personaje de l&#237;nea suave y cabello ondulado, tratado como exploraci&#243;n de identidad y gesto.</span>
+                    </span>
+                </button>
+            </article>
+            <article class="art-card" data-index="4" data-month="Marzo" data-technique="Paisaje crom&#225;tico" data-title="Proyecto 1: 4 / Marzo" data-room="Sala III">
+                <button class="art-open" type="button" aria-label="Abrir ficha de Proyecto 1: 4 / Marzo">
+                    <span class="image-container">
+                        <img src="assets/obra-original-01.png" alt="Sendero de Agua hacia el Atardecer">
+                    </span>
+                    <span class="art-info">
+                        <span class="art-kicker">Sala III / 4 de marzo</span>
+                        <span class="art-technique">Paisaje crom&#225;tico</span>
+                        <span class="art-title">Proyecto 1: 4 / Marzo</span>
+                        <span class="art-description">Escena de atardecer sobre el monte, con profundidad atmosf&#233;rica y lectura c&#225;lida del paisaje.</span>
+                    </span>
+                </button>
+            </article>
+            <article class="art-card" data-index="5" data-month="Abril" data-technique="Perspectiva" data-title="Puntos de fuga: 22 / Abril" data-room="Sala IV">
+                <button class="art-open" type="button" aria-label="Abrir ficha de Puntos de fuga: 22 / Abril">
+                    <span class="image-container">
+                        <img src="assets/obra-original-05.jpg" alt="Perspectiva de Cuerpos Geom&#195;&#169;tricos">
+                    </span>
+                    <span class="art-info">
+                        <span class="art-kicker">Sala IV / 22 de abril</span>
+                        <span class="art-technique">Perspectiva</span>
+                        <span class="art-title">Puntos de fuga: 22 / Abril</span>
+                        <span class="art-description">Ejercicio de perspectiva con figuras geom&#233;tricas en volumen y estructura espacial marcada.</span>
+                    </span>
+                </button>
+            </article>
+            <article class="art-card" data-index="6" data-month="Abril" data-technique="Perspectiva &#243;ptica" data-title="Ilusi&#243;n &#243;ptica: 22 / Abril" data-room="Sala IV">
+                <button class="art-open" type="button" aria-label="Abrir ficha de Ilusi&#243;n &#243;ptica: 22 / Abril">
+                    <span class="image-container">
+                        <img src="assets/obra-original-06.jpg" alt="Ilusi&#195;&#179;n de Red Tridimensional">
+                    </span>
+                    <span class="art-info">
+                        <span class="art-kicker">Sala IV / 22 de abril</span>
+                        <span class="art-technique">Perspectiva &#243;ptica</span>
+                        <span class="art-title">Ilusi&#243;n &#243;ptica: 22 / Abril</span>
+                        <span class="art-description">Dibujo de ondas y profundidad visual que construye una ilusi&#243;n &#243;ptica mediante repetici&#243;n y perspectiva.</span>
+                    </span>
+                </button>
+            </article>
+            <article class="art-card" data-index="7" data-month="Abril" data-technique="Arquitectura" data-title="Edificio: 30 / Abril" data-room="Sala IV">
+                <button class="art-open" type="button" aria-label="Abrir ficha de Edificio: 30 / Abril">
+                    <span class="image-container">
+                        <img src="assets/obra-original-07.jpg" alt="Perspectiva de Arquitectura Urbana">
+                    </span>
+                    <span class="art-info">
+                        <span class="art-kicker">Sala IV / 30 de abril</span>
+                        <span class="art-technique">Arquitectura</span>
+                        <span class="art-title">Edificio: 30 / Abril</span>
+                        <span class="art-description">Perspectiva urbana de edificios, casas y calle, organizada con sensaci&#243;n de recorrido arquitect&#243;nico.</span>
+                    </span>
+                </button>
+            </article>
+            <article class="art-card" data-index="8" data-month="Julio" data-technique="Arte abstracto" data-title="Expresando Sentimientos a Través del Arte Abstracto" data-room="Sala V">
+                <button class="art-open" type="button" aria-label="Abrir ficha de Expresando Sentimientos a Través del Arte Abstracto">
+                    <span class="image-container">
+                        <img src="assets/expresando-sentimientos-arte-abstracto.jpg" alt="Lienzo abstracto con un corazón central">
+                    </span>
+                    <span class="art-info">
+                        <span class="art-kicker">Sala V / 22 de julio</span>
+                        <span class="art-technique">Arte abstracto</span>
+                        <span class="art-title">Expresando Sentimientos a Través del Arte Abstracto</span>
+                        <span class="art-description">Composición sobre lienzo que reúne escenas y símbolos alrededor de un corazón central para explorar emociones a través del color y la pintura.</span>
+                    </span>
+                </button>
+            </article>
+            <article class="art-card" data-index="9" data-month="Agosto" data-technique="Arte articulado" data-title="Muñeco Colgante Articulado" data-room="Sala VI">
+                <button class="art-open" type="button" aria-label="Abrir ficha de Muñeco Colgante Articulado">
+                    <span class="image-container">
+                        <img src="assets/muneco-colgante-articulado.jpg" alt="Muñeca ilustrada de cabello rizado con cuerpo articulado">
+                    </span>
+                    <span class="art-info">
+                        <span class="art-kicker">Sala VI / 5 de agosto</span>
+                        <span class="art-technique">Arte articulado</span>
+                        <span class="art-title">Muñeco Colgante Articulado</span>
+                        <span class="art-description">Personaje recortado y articulado de cabello rizado, diseñado para colgarse y explorar el movimiento de una figura ilustrada.</span>
+                    </span>
+                </button>
+            </article>
+            <article class="art-card" data-index="10" data-month="Agosto" data-technique="Creación de personajes" data-title="Creación de personajes – Un mundo, tres personajes" data-room="Sala VI">
+                <button class="art-open" type="button" aria-label="Abrir ficha de Creación de personajes – Un mundo, tres personajes">
+                    <span class="image-container">
+                        <img src="assets/creacion-de-personajes-un-mundo-tres-personajes.jpg" alt="Boceto horizontal de varios personajes">
+                    </span>
+                    <span class="art-info">
+                        <span class="art-kicker">Sala VI / 12 de agosto</span>
+                        <span class="art-technique">Creación de personajes</span>
+                        <span class="art-title">Creación de personajes – Un mundo, tres personajes</span>
+                        <span class="art-description">Boceto horizontal que presenta un pequeño universo de personajes con estilos, vestuarios y personalidades diferenciadas.</span>
+                    </span>
+                </button>
+            </article>
+            <article class="art-card" data-index="11" data-month="Agosto" data-technique="Pixel art" data-title="Proyecto colaborativo: Mural Pixel Art" data-room="Sala VII">
+                <button class="art-open" type="button" aria-label="Abrir ficha de Proyecto colaborativo: Mural Pixel Art">
+                    <span class="image-container">
+                        <img src="assets/mural-pixel-art.png" alt="Mural digital en pixel art con predominio de color verde">
+                    </span>
+                    <span class="art-info">
+                        <span class="art-kicker">Sala VII / 20 de agosto</span>
+                        <span class="art-technique">Pixel art</span>
+                        <span class="art-title">Proyecto colaborativo: Mural Pixel Art</span>
+                        <span class="art-description">Mural digital colaborativo construido con estética pixel art y una paleta dominada por verdes, con referencias a una galería de obras.</span>
+                    </span>
+                </button>
+            </article>
+        </div>
+        <div id="empty" class="empty">No hay obras que coincidan con esa selección.</div>
+    </main>
+
+    <dialog id="artModal" aria-label="Ficha de obra">
+        <button class="close" id="closeModal" type="button" aria-label="Cerrar">X</button>
+        <div class="modal-grid">
+            <div class="modal-image"><img id="modalImg" src="" alt=""></div>
+            <div class="modal-info">
+                <div>
+                    <p class="eyebrow" id="modalRoom"></p>
+                    <h3 id="modalTitle"></h3>
+                    <div class="modal-meta">
+                        <span id="modalDate"></span>
+                        <span id="modalTechnique"></span>
+                    </div>
+                    <p id="modalDesc"></p>
+                </div>
+                <div class="modal-actions">
+                    <button id="prevArt" type="button">Anterior</button>
+                    <button id="nextArt" type="button">Siguiente</button>
+                </div>
+            </div>
+        </div>
+    </dialog>
+
+    <footer>
+        <p>&copy; 2026 | Portafolio de Arte Original - Todos los derechos reservados</p>
+    </footer>
+</body>
+</html>
