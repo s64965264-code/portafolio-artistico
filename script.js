@@ -41,10 +41,37 @@ const artworks = [{"title":"Dibujo cromático: 22 / Enero","date":"22 de enero",
                 alt: 'Mural digital en pixel art con predominio de color verde'
             }
         );
+        const concepts = [
+            'Identidad y expresión personal, exploradas mediante una paleta fría y contrastes cromáticos.',
+            'El encuentro entre la experiencia personal, el dibujo y la naturaleza, representado en un paisaje de montaña con cascada.',
+            'La vida marina reinterpretada con formas geométricas, repetición y ritmo visual.',
+            'Identidad y gesto; el personaje se construye con líneas suaves y atención a sus rasgos.',
+            'La atmósfera y el paso de la luz en el paisaje, expresados con profundidad y tonos cálidos de atardecer.',
+            'Profundidad y volumen en el espacio, organizados mediante figuras geométricas y perspectiva.',
+            'La percepción visual y la ilusión de profundidad, creadas con ondas repetidas y perspectiva.',
+            'La organización del espacio urbano y el recorrido entre edificios, casas y calle.',
+            'Expresar sentimientos con colores y símbolos; las escenas del lienzo se organizan alrededor de un corazón central.',
+            'Juego y movimiento; el diseño de una muñeca articulada permite imaginarla en distintas posturas.',
+            'Imaginar un mundo compartido con personajes de personalidades, estilos y vestuarios distintos.',
+            'Crear en equipo una galería imaginaria; el pixel art y los tonos verdes dan identidad al mural digital.'
+        ];
+        artworks.forEach((art, index) => {
+            art.medium = index === 11 ? 'Digital' : 'Manual';
+            art.desc = concepts[index];
+            const card = document.querySelector(`.art-card[data-index="${index}"]`);
+            if (card) {
+                const format = document.createElement('span');
+                format.className = 'art-medium';
+                format.textContent = `Producción ${art.medium.toLowerCase()}`;
+                const info = card.querySelector('.art-info');
+                info.insertBefore(format, info.querySelector('.art-technique'));
+            }
+        });
         const gallery = document.getElementById('gallery');
         const cards = Array.from(document.querySelectorAll('.art-card'));
         const search = document.getElementById('search');
         const techniqueFilter = document.getElementById('techniqueFilter');
+        const mediumFilter = document.getElementById('mediumFilter');
         const monthButtons = Array.from(document.querySelectorAll('.month-button'));
         const count = document.getElementById('resultCount');
         const empty = document.getElementById('empty');
@@ -56,14 +83,16 @@ const artworks = [{"title":"Dibujo cromático: 22 / Enero","date":"22 de enero",
         function applyFilters() {
             const query = normalize(search.value.trim());
             const technique = techniqueFilter.value;
+            const medium = mediumFilter.value;
             let visible = 0;
             cards.forEach((card) => {
                 const art = artworks[Number(card.dataset.index)];
-                const haystack = normalize(`${art.title} ${art.date} ${art.month} ${art.technique} ${art.room} ${art.desc}`);
+                const haystack = normalize(`${art.title} ${art.date} ${art.month} ${art.technique} ${art.medium} ${art.room} ${art.desc}`);
                 const matchesMonth = activeMonth === 'Todos' || art.month === activeMonth;
                 const matchesTechnique = technique === 'Todas' || art.technique === technique;
+                const matchesMedium = medium === 'Todos' || art.medium === medium;
                 const matchesSearch = !query || haystack.includes(query);
-                const show = matchesMonth && matchesTechnique && matchesSearch;
+                const show = matchesMonth && matchesTechnique && matchesMedium && matchesSearch;
                 card.classList.toggle('hidden', !show);
                 if (show) visible += 1;
             });
@@ -83,8 +112,8 @@ const artworks = [{"title":"Dibujo cromático: 22 / Enero","date":"22 de enero",
             document.getElementById('modalRoom').textContent = art.room;
             document.getElementById('modalTitle').textContent = art.title;
             document.getElementById('modalDate').textContent = art.date;
-            document.getElementById('modalTechnique').textContent = art.technique;
-            document.getElementById('modalDesc').textContent = art.desc;
+            document.getElementById('modalTechnique').textContent = `Técnica: ${art.technique}`;
+            document.getElementById('modalDesc').textContent = `Concepto: ${art.desc}`;
             modal.showModal();
         }
         function stepArt(direction) { openArt((currentIndex + direction + artworks.length) % artworks.length); }
@@ -92,12 +121,13 @@ const artworks = [{"title":"Dibujo cromático: 22 / Enero","date":"22 de enero",
         monthButtons.forEach((button) => button.addEventListener('click', () => setMonth(button.dataset.month)));
         search.addEventListener('input', applyFilters);
         techniqueFilter.addEventListener('change', applyFilters);
+        mediumFilter.addEventListener('change', applyFilters);
         document.getElementById('viewToggle').addEventListener('click', (event) => {
             gallery.classList.toggle('list');
             event.currentTarget.textContent = gallery.classList.contains('list') ? 'Vista galería' : 'Vista lista';
         });
         document.getElementById('tourButton').addEventListener('click', () => openArt(0));
-        document.getElementById('resetButton').addEventListener('click', () => { search.value = ''; techniqueFilter.value = 'Todas'; setMonth('Todos'); });
+        document.getElementById('resetButton').addEventListener('click', () => { search.value = ''; techniqueFilter.value = 'Todas'; mediumFilter.value = 'Todos'; setMonth('Todos'); });
         document.getElementById('closeModal').addEventListener('click', () => modal.close());
         document.getElementById('prevArt').addEventListener('click', () => stepArt(-1));
         document.getElementById('nextArt').addEventListener('click', () => stepArt(1));
