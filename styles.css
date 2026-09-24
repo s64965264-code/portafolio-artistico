@@ -27,6 +27,9 @@
         .section-head { display: flex; justify-content: space-between; gap: 1rem; align-items: end; margin-bottom: 1.2rem; }
         .section-head h2 { font-size: clamp(1.45rem, 3vw, 2.2rem); letter-spacing: 0; }
         .section-head p { color: var(--muted); }
+         .gallery-intro { max-width: 760px; margin: -0.55rem 0 1.35rem; color: var(--muted); }
+         .about-link { display: inline-flex; align-items: center; justify-content: center; min-height: 42px; padding: 0 0.85rem; border: 1px solid var(--gold-deep); border-radius: 6px; background: #0b0b0b; color: var(--white); text-decoration: none; font-weight: 700; }
+         .about-link:hover, .about-link:focus-visible { border-color: var(--gold); color: var(--gold); }
         .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.35rem; }
         .gallery-grid.list { grid-template-columns: 1fr; }
         .art-card { background-color: var(--panel); border-radius: 8px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.45); border: 1px solid var(--gold-deep); transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease; }
@@ -42,6 +45,7 @@
         .gallery-grid.list .art-info { border-top: 0; border-left: 4px solid var(--gold); }
         .art-kicker, .art-technique, .art-description { display: block; }
         .art-kicker { color: var(--soft); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08rem; }
+         .art-medium { display: inline-block; width: fit-content; margin-top: 0.45rem; padding: 0.18rem 0.55rem; border: 1px solid rgba(212,175,55,0.55); border-radius: 999px; color: var(--soft); font-size: 0.72rem; letter-spacing: 0.03rem; }
         .art-technique { margin-top: 0.3rem; color: var(--gold); text-transform: uppercase; letter-spacing: 0.08rem; font-size: 0.76rem; font-weight: 800; }
         .art-title { display: block; margin-top: 0.55rem; font-size: 1.18rem; font-weight: 750; color: var(--white); }
         .art-description { margin-top: 0.6rem; color: var(--muted); font-size: 0.92rem; }
@@ -58,6 +62,13 @@
         .modal-meta { display: grid; gap: 0.55rem; margin-top: 1rem; color: var(--muted); }
         .modal-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; }
         .close { position: absolute; right: 0.75rem; top: 0.75rem; width: 42px; padding: 0; background: #000; }
+         .about-section { padding: 3.5rem 1rem; border-top: 1px solid var(--gold-deep); border-bottom: 1px solid var(--gold-deep); background: radial-gradient(circle at 12% 30%, rgba(212,175,55,0.08), transparent 25%), #080808; }
+         .about-inner { width: min(1000px, 100%); margin: 0 auto; display: grid; grid-template-columns: minmax(150px, 0.55fr) minmax(0, 1.45fr); gap: clamp(1.5rem, 5vw, 4rem); align-items: start; }
+         .about-label { display: grid; justify-items: start; gap: 1rem; }
+         .author-monogram { display: grid; width: 92px; height: 92px; place-items: center; border: 1px solid var(--gold); border-radius: 50%; color: var(--gold); font-family: Georgia, serif; font-size: 3rem; box-shadow: 0 0 36px rgba(212,175,55,0.12); }
+         .about-copy h2 { margin-bottom: 1.1rem; font-size: clamp(1.8rem, 4vw, 2.6rem); }
+         .about-copy p { max-width: 720px; margin-top: 0.85rem; color: var(--soft); }
         footer { text-align: center; padding: 2.5rem; background-color: #000; color: var(--soft); font-size: 0.9rem; border-top: 1px solid var(--gold-deep); }
         @media (max-width: 820px) { .toolbar-inner, .section-head, .modal-grid, .gallery-grid.list .art-open { grid-template-columns: 1fr; } .hero-stats, .timeline-inner { grid-template-columns: repeat(2, 1fr); } .controls { justify-content: flex-start; } .modal-info { border-left: 0; border-top: 1px solid var(--gold-deep); } .image-container, .gallery-grid.list .image-container { height: 320px; } }
-        @media (max-width: 520px) { header { min-height: 70vh; } .hero-stats, .timeline-inner { grid-template-columns: 1fr; } button, select, .search { width: 100%; } }
+         @media (max-width: 700px) { .about-inner { grid-template-columns: 1fr; } .about-label { grid-template-columns: auto 1fr; align-items: center; } .author-monogram { width: 68px; height: 68px; font-size: 2.3rem; } }
+         @media (max-width: 520px) { header { min-height: 70vh; } .hero-stats, .timeline-inner { grid-template-columns: 1fr; } button, select, .search, .about-link { width: 100%; } .about-section { padding: 2.7rem 1rem; } }
